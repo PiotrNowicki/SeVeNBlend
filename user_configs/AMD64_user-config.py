@@ -1,0 +1,25 @@
+CHOST="x86_64-pc-linux-gnu"
+CFLAGS="-march=nocona -O2 -pipe"
+CXXFLAGS="${CFLAGS}"
+
+BF_OPENAL_LIB = 'openal alut'
+WITH_BF_INTERNATIONAL = 'false'
+WITH_BF_VERSE = 'true'
+BF_TWEAK_MODE = 'true'
+WITH_BF_JPEG = 'true'
+WITH_BF_PNG = 'true'
+WITH_BF_OPENEXR = 'true'
+WITH_BF_QUICKTIME = 'false'
+WITH_BF_FFMPEG = 'true'
+WITH_BF_OPENAL = 'false'
+WITH_BF_SDL = 'true'
+WITH_BF_GAMEENGINE = 'false'
+WITH_BF_PLAYER = 'false'
+WITH_BF_BULLET = 'false'
+WITH_BF_ZLIB = 'true'
+WITH_BF_FMOD = 'true'
+WITH_BF_FTGL = 'true'
+WITH_BF_ICONV = 'false'
+WITH_BF_STATICOPENGL = 'false'
+BF_PYTHON_VERSION = '2.5'
+BF_DEBUG = 'false' 

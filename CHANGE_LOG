@@ -1,0 +1,64 @@
+2009-10-07 Palli
+* Version 0.2.2.
+	- Changed repositories of Yafaray Core + Exporter to the new ones.
+
+2009-10-05 Palli
+* Version 0.2.1.
+	- Added fix for 'could not find nasm.inc' bug,
+	- Added switch to select if you want to compile Blender from trunk (v. 2.5) or 2.4 branch,
+	- Added some packages to INSTALL_PCKGS switch,
+
+2008-12-26 Palli
+* Version 0.2.0.
+	- Removed 0.0.2 export support; only 0.0.3 with QT render is now available
+	- INSTALL_PCKGS switch. Installs needed packages for compilation process. 
+	    Uses apt-get tool so it's mainly usable for Debian family distros
+	- NO_QT switch. Do not build QT GUI for Yafaray (runs with 0.0.3 exporter script)
+	- CLEAN switch. Cleans build directories and exits
+	- CLEAN_ALL switch. Cleans all directories (src + build + logs) and exits
+	- New Blender buttons pack added (jendrzych, http://blenderartists.org/forum/showthread.php?t=84971)
+	- NO_YAFARAY switch has been removed
+	- Scons multiple targets parameter by default set to '2' instead of '1' 
+
+2008-12-22 Palli
+* Version 0.1.4.
+	- Added Yaf(a)ray Exporter script ver. 0.0.3 Python script 
+	    (it's available next to 0.0.2 ver. from Blender scripts menu so you can choose the one you prefer)
+	- USE_INTERNAL_SCONS flag. It is up to user to decide if one want to use system scons or the one 
+	    that comes with Blender source (default = uses system scons command) 
+	    [http://feeblemind.tuxfamily.org/dotclear/index.php/2008/11/02/108-compiling-blender-important-new-upgrade]
+	- THREADS_NUM param. Adds '-j' option for scons to compile multiple targets parrarel (default = 1)
+	- LINES_TO_DUMP param. Dumps last 'x' lines from log in case of fail (default = 15)
+	- REV_BLENDER, REV_YAF_CORE, REV_YAF_EXP params. Specifiec what revision do you want to checkout 
+	    of Blender, Yaf(a)ray Core and Yaf(a)ray Exporter (default = 0; it means that the latest revision
+	    will be checked out)
+	- Clearer information about compilation error and steps (along with time) taken by the script 
+	    for easier recognition of problem
+	- Added 'swig' and 'binutils' to Ubuntu users apt-get command in README file
+	- Added information about setting proper script path in Blender after installing SeVeNBlend
+	- Separate directory for all Python scripts created/copied by SeVeNblend
+
+2008-10-04 Palli
+* Version 0.1.3.
+	- Fixed compiling under GCC 4.3.x where some libraries were missing 
+	(thanks Lempour@yafray.org/forum for mentioning them)
+	- WITH_BF_REDCODE flag is set to 'false' in user-config.py to prevent
+	occuring of Blender building errors
+	- BF_QUIET=0 BF_FANCY=0 flags added to scons command. Now one is able
+	to visually check logs more clearly than without those flags
+	- Fixed checking if volume integrator for preview materials is added 
+	to exporter by authors
+
+2008-05-18 Palli
+* Version 0.0.1.
+   - FORCE switch forces recompilation of Yaf(a)ray [until now it was
+   recompiling the Blender only],
+   - Proper information about using user-config.py ([INFO] instead of [WARN])
+
+2008-05-05 Palli
+* Changes to alpha version.
+   - added switches (HELP, NO_YAFARAY),
+   - works with changed Blender code where
+       BLI_convertstringcode(char*, char*, int) 
+	      was replaced by
+       BLI_convertstringcode(char*, char*) 

@@ -1,0 +1,97 @@
+Script:			SeVeNblend
+Author:			Piotr Nowicki
+Date:			2008-04-29
+Last Change:		2009-10-06
+======================================
+ 
+I. INTRODUCTION
+
+This script was written to make the whole process of compiling Blender from SVN with Yaf(a)ray (rewritten core of Yafray) easier (setting paths, adding volume_integrator, copying, etc.).
+
+
+II. WHAT DOES THIS SCRIPT DO
+
+1. Download Blender, Yaf(a)ray Core and Yaf(a)ray Exporter from SVN
+2. Compile it
+3. Let you run it and have a fun :)
+
+Also you can:
+1. Compile Blender with your own icon theme
+2. Optimize it for your CPU
+
+
+III. REQUIRED LIBRARIES
+
+The script needs few libraries in order to work properly (notice than if you edit user-config.py you might have to install some more libraries) like:
+- subversion
+- scons
+- png
+- gcc
+- g++
+- alut
+- sdl
+- openexr
+- jpeg
+- python (2.5 would be nice)
+- tiff
+- gettext
+- xi
+- freetype
+- xml2
+- ... and everything that depends on those
+
+For Ubuntu users - you could try to copy and paste this line (or adjust it if mismatches occurs):
+sudo apt-get install subversion libqt4dev binutils swig scons libpng12-dev gcc g++ libalut-dev libsdl-sound1.2-dev libopenexr-dev libjpeg62-dev python2.5-dev libtiff4-dev gettext libxi-dev libfreetype6-dev libxml2-dev
+
+
+IV. USAGE
+
+./sevenblend.sh [OPTIONS...]
+
+Where OPTIONS are :
+!!! THIS SECTION IS OBSOLETE. PLEASE TYPE ./sevenblend HELP for full options list with description!!!:
+- WITH_BUTT - yea, kind of funny switch ;) Compile blender with your own buttons (you need to put your icons into 'addons' directory of the script and name it 'blenderbuttons.png'. By default it's compiled with Blender standard buttons.
+
+- WITH_OPTIM - use user-config.py to optimize build. The 'user-config.py' script must be in 'user_configs' directory of the script. There is one user-config.py which was used by me for Intel Core2Duo build on gcc 4.2 and another, very short, config for AMD64 processors. By default it's compiled with default user-config.py.
+
+- FORCE - When there are no changes in any of three repositories (Blender and 2x Yaf(a)ray) there is no need of recompiling Blender. BUT if you want to add new buttons or try new optimimalization configuration - use this switch to tell script to fore recompilation of Blender source.
+
+- HELP - shows what switches you can use with the script (basicaly short version of this section
+
+- NO_YAFARAY - compile only Blender - without inserting Yaf(a)ray into Blender source; by default standard Yafray will be there instead
+
+
+V. INSTRUCTIONS
+
+1. Unpack the script (if you're reading it you must have done it already ;)
+2. Be sure that the unpacked directory (which contains sevenblend.sh file) has rights to write/read/execute (chmod 700)
+2. Change permissions to allow owner to execute sevenblend (ex. chmod 500 ./sevenblend.sh)
+3. Run it with or without any of the swiches mentioned in IV.
+4. Read the informations on screen and be patient.
+5. When prompted about the permission to access sites via SVN accept temporary or permanently
+6. There are two sudo's commands in script - one is for installing of yaf(a)ray into /usr/local/ and another is for running ldconfig
+7. After installation there will be made a shortcut for blender build in your home directory named 'sevenblend' which you might want to run and test your new Blender :)
+8. When running Blender, set 'scripts path' in Blender options to point to 'YOUR_SEVENBLEND_DIR/.sources/install/linux2/.blender/scripts' directory in order to use Yaf(a)ray export scripts
+
+VI. FILE STRUCTURE
+
+.
+|-- README				- the file you're reading right now
+|-- addons
+|   `-- blenderbuttons.png		- modified icons to use
+|-- sevenblend.sh			- main 'heart' of the script 
+|-- user_configs
+|   |-- AMD64_user-config.py		- example config (rename to user-config.py)
+|   |-- CORE2DUO_user-config.py		- example config (rename to user-config.py)
+|   `-- user-config.py			- file to use when WITH_OPTIM switch set
+`-- yafaray_test.blend			- example scene to render with yaf(a)ray
+
+VII. BUNDLE
+
+Latest bundle of SeVenBlend is 0.2.2 (10.2009) and can be downloaded from http://www.piotrnowicki.com/sevenblend/sevenblend-0.2.2.tar.gz.
+
+VIII. CONTACT
+
+If you would like to contact me, please feel free to write at pallipp@gmail.com with any problems with this script. If I can - I will gladly help.
+
+Have fun!
